@@ -5,11 +5,39 @@ from django.utils import timezone
 
 from core.management.commands.bot import bot
 
+class Category(models.Model):
+    name = models.CharField('Название', max_length=60)
+
+    class Meta:
+        verbose_name = 'Категория товара'
+        verbose_name_plural = 'Категории товаров'
+
+    def __str__(self) -> str:
+        return f'{self.int_name} - {self.text_name}'
+
+
+class Sizes(models.Model):
+    text_name = models.CharField(verbose_name='Текстовый размер', max_length=6, null=True, blank=True)
+    int_name = models.IntegerField(verbose_name='Числовой размер')
+
+    class Meta:
+        verbose_name = 'Размер'
+        verbose_name_plural = 'Размеры'
+    
+    def __str__(self) -> str:
+        return f'{self.int_name} - {self.text_name}'
+
+
+
 class Product(models.Model):
     title = models.CharField('Заголовок', max_length=140)
     price = models.IntegerField('Цена продукта')
-    description = models.TextField('Описание')
+    description = models.TextField('Описание', null=True, blank=True)
     image = models.ImageField(upload_to='images')
+    textile = models.CharField(max_length=60)
+    compound = models.CharField(max_length=120)
+    category = models.ForeignKey(Category, models.SET_NULL, null=True, blank=True)
+    sizes = models.ManyToManyField(Sizes, related_name='products')
 
     class Meta:
         verbose_name = 'Товар'
