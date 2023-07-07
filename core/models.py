@@ -78,7 +78,7 @@ class ToNotification(models.Model):
 
 class ApplicationCall(models.Model):
     name = models.TextField()
-    phone_number = PhoneNumberField()
+    phone_number = models.CharField(max_length=16)
     confirmed = models.BooleanField(default=False)
     created_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
