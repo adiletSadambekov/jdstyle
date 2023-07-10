@@ -143,7 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True  # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:5173', 'http://jdstyle.org', 'https://jdstyle.org'
+    'http://localhost:5173', 'http://jdstyle.org', 'https://jdstyle.org', 'http://www.jdstyle.org', 'https://www.jdstyle.org'
 ]
 CORS_ALLOW_METHODS = [
     'GET',
@@ -153,5 +153,5 @@ CORS_ALLOW_METHODS = [
 
 
 
-CSRF_TRUSTED_ORIGINS = ['http://188.120.232.198:8000']
+CSRF_TRUSTED_ORIGINS = ['http://188.120.232.198:8000', 'http://jdstyle.org', 'https://jdstyle.org', 'http://www.jdstyle.org', 'https://www.jdstyle.org']
 CSRF_COOKIE_SECURE = False
