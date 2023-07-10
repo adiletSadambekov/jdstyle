@@ -144,6 +144,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True  # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 # CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://jdstyle.org",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+]
 # CORS_ORIGIN_WHITELIST = [
 #     'http://jdstyle.org',
 #     'https://jdstyle.org',
@@ -155,7 +160,9 @@ CORS_ALLOW_ALL_ORIGINS = True  # If this is used then `CORS_ALLOWED_ORIGINS` wil
 #     'OPTIONS',
 #     'POST',
 # ]
+USE_X_FORWARDED_HOST = True
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 CSRF_TRUSTED_ORIGINS = ['http://188.120.232.198:8000', 'http://jdstyle.org', 'https://jdstyle.org', 'http://www.jdstyle.org', 'https://www.jdstyle.org']
