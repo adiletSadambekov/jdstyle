@@ -146,6 +146,7 @@ CORS_ALLOW_ALL_ORIGINS = True  # If this is used then `CORS_ALLOWED_ORIGINS` wil
 # CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "https://jdstyle.org",
+    "http://jdstyle.org",
     "http://localhost:7000",
     "http://127.0.0.1:7000",
 ]
