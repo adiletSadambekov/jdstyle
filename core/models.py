@@ -70,10 +70,16 @@ class Product(models.Model):
 
 
 class ToNotification(models.Model):
+    name = models.CharField(max_length=40, null=True, blank=True)
     tg_id = models.CharField('id в телеграмме',max_length=90)
     class Meta:
         verbose_name = 'Получатель опавещения'
         verbose_name_plural = 'Получатели опавещений'
+    
+    def __str__(self) -> str:
+        if self.name:
+            return self.name
+        return str(self.tg_id)
 
 
 class ApplicationCall(models.Model):
