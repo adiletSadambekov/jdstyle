@@ -30,26 +30,27 @@ urlpatterns = [
     path('api/v1/products/', ProductView.as_view()),
     path('api/v1/createApplicationCall/', ApplicationCallView.as_view()),
 ]
-
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-    schema_view = get_schema_view(
-        openapi.Info(
-            title="MChart API",
-            default_version='v1',
-            description="MChart Python API",
-            terms_of_service="",
-            contact=openapi.Contact(email="whoiam@gmail.com"),
-        ),
-        public=True,
-        permission_classes=[permissions.AllowAny, ],
-    )
-    urlpatterns = urlpatterns + [
-        path(r'api/v1/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    ]
+    # schema_view = get_schema_view(
+    #     openapi.Info(
+    #         title="MChart API",
+    #         default_version='v1',
+    #         description="MChart Python API",
+    #         terms_of_service="",
+    #         contact=openapi.Contact(email="whoiam@gmail.com"),
+    #     ),
+    #     public=True,
+    #     permission_classes=[permissions.AllowAny, ],
+    # )
+    # urlpatterns = urlpatterns + [
+    #     path(r'api/v1/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    # ]
 
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
